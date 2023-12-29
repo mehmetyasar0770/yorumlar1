@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import people from './data';
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
+
+// Reviewleri render eden componenttir
 const Review = () => {
   const [index, setIndex] = useState(0);
   const { name, job, image, text } = people[index];
@@ -13,18 +15,24 @@ const Review = () => {
     }
     return number;
   };
+
+  // bir sonraki reviewe geçmek için kullanılan fonksiyon
   const nextPerson = () => {
     setIndex((index) => {
       let newIndex = index + 1;
       return checkNumber(newIndex);
     });
   };
+
+  // bir önceki reviewe dönmek için kullanılan fonksiyon
   const prevPerson = () => {
     setIndex((index) => {
       let newIndex = index - 1;
       return checkNumber(newIndex);
     });
   };
+
+  // Rastgele bir yoruma gitmek için kullanılan fonksiyon
   const randomPerson = () => {
     let randomNumber = Math.floor(Math.random() * people.length);
     if (randomNumber === index) {
